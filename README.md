@@ -16,20 +16,17 @@ npm install --save split-string-every
 ## Usage
 
 ```javascript
-import { isInternalLink } from "split-string-every";
+import { splitStringEvery } from "split-string-every";
 ```
+
 or
 
 ```javascript
-import isInternalLink from "split-string-every";
+import splitStringEvery from "split-string-every";
 ```
 
 ```javascript
-isInternalLink("https://www.google.com"); // false
-```
-
-```javascript
-isInternalLink("/page1"); // true
+splitStringEvery("c310d92e1efc6521beeebc80336fc98b", 8, " "); // "c310d92e 1efc6521 beeebc80 336fc98b"
 ```
 
 ## Test
@@ -37,59 +34,3 @@ isInternalLink("/page1"); // true
 ```bash
 npm run test
 ```
-
-## Why ?
-
-I found my self doing this every time I started new project.
-That's why I decided to make this logic to abstract the logic and share it with the world
-
-## How does it fit in my App?
-
-This is one example, if you're using React. And just want to have a single component.
-Instead of sometimes using `<Link>` and sometimes using `<a>`. Just create new `Link` component and use it everywhere.
-
-Another pattern I usually use. Usually I add `target="_blank"` for external link.
-So every external link will be opened in new tab
-
-```javascript
-import React from "react";
-
-import { Link as ReactRouterLink } from "react-router-dom";
-import { isInternalLink } from "split-string-every";
-
-const Link = ({ children, to, activeClassName, ...other }) => {
-  if (isInternalLink(to)) {
-    return (
-      <ReactRouterLink to={to} activeClassName={activeClassName} {...other}>
-        {children}
-      </ReactRouterLink>
-    );
-  }
-  return (
-    <a href={to} target="_blank" {...other}>
-      {children}
-    </a>
-  );
-};
-
-export default Link;
-```
-
-## Contributors
-
-- [muhajirframe](https://github.com/muhajirframe)
-- [franciscop-invast](https://github.com/franciscop-invast)
-
-## Contributing
-
-Please do not hesitate to submit an issue or pull request.
-
-## Question?
-
-Submit an issue || ping me [@muhajirframe](https://twitter.com/muhajirframe) on twitter
-
-## License
-
-MIT
-
-**Enjoy**
