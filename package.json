@@ -14,7 +14,7 @@
     "test": "jest",
     "build": "tsc"
   },
-  "repository": "https://github.com/muhajirframe/split-string-every",
-  "author": "Muhammad Muhajir <muhajirframe@gmail.com>",
+  "repository": "https://github.com/muhajirdev/split-string-every",
+  "author": "Muhammad Muhajir <muhammad@muhajir.dev>",
   "license": "MIT"
 }
